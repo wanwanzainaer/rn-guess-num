@@ -16,6 +16,8 @@ import MainButton from '../components/MainButton';
 import BodyText from '../components/BodyText';
 import DefaultStyles from '../constants/default-styles';
 
+import * as ScreenOrientation from 'expo-screen-orientation';
+
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -35,6 +37,8 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = (props) => {
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+
   const initialGuess = generateRandomBetween(1, 100, props.userChoice);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
